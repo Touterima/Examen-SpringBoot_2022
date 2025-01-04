@@ -19,12 +19,12 @@ public class UtilisateurController {
         return utilisateurService.ajouterUtilisateur(utilisateur);
     }
 
-    @PostMapping("/affecter-utilisateur-classe/{idUtilisateur}/{codeClasse}")
+    @PostMapping("/affecterUtilisateurClasse/{idUtilisateur}/{codeClasse}")
     public void affecterUtilisateurClasse(@PathVariable Integer idUtilisateur, @PathVariable Integer codeClasse) {
         utilisateurService.affecterUtilisateurClasse(idUtilisateur, codeClasse);
     }
 
-    @GetMapping("/nb-utilisateurs-par-niveau/{niveau}")
+    @GetMapping("/nbUtilisateursParNiveau/{niveau}")
     public Integer nbUtilisateursParNiveau(@PathVariable Niveau niveau) {
         return utilisateurService.nbUtilisateursParNiveau(niveau);
     }

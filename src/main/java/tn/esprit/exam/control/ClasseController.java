@@ -3,6 +3,7 @@ package tn.esprit.exam.control;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.exam.entity.Classe;
@@ -17,7 +18,7 @@ public class ClasseController {
     IClasseService classeService;
 
     @PostMapping("/add-class")
-    public Classe ajouterClasse (Classe c){
+    public Classe ajouterClasse (@RequestBody Classe c){
         return classeService.ajouterClasse(c);
     }
 }

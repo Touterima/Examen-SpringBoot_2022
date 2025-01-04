@@ -9,7 +9,6 @@ import tn.esprit.exam.repository.ClasseRepo;
 
 @Service
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Slf4j
 public class ClasseServiceImpl implements IClasseService{
 

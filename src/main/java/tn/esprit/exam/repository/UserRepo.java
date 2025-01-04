@@ -7,9 +7,13 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.exam.entity.Utilisateur;
 import tn.esprit.exam.entity.enums.Niveau;
 
+import java.util.List;
+
 @Repository
 public interface UserRepo extends JpaRepository<Utilisateur, Integer> {
 
     @Query("SELECT COUNT(u) FROM Utilisateur u WHERE u.classe.niveau = :niveau")
     Integer countByClasseNiveau(Niveau niveau);
+
+    List<Utilisateur> findByClasse_Niveau(Niveau niveau);
 }
