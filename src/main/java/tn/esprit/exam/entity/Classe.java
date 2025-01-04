@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import tn.esprit.exam.entity.enums.Niveau;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,12 @@ public class Classe implements Serializable {
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @OneToMany(mappedBy = "classe")
     private Set<CoursClassroom> coursClassrooms;
 
+/*
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<CoursClassroom> coursClassrooms;
+*/
 }

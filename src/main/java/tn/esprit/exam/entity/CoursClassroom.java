@@ -26,6 +26,12 @@ public class CoursClassroom implements Serializable {
     private int nbHeures;
     private boolean archive;
 
-    @ManyToOne/*(mappedBy="coursClassrooms")*/
+
+    @ManyToOne
     private Classe classe;
+
+/*
+        @ManyToOne/*(mappedBy="coursClassrooms")*/
+    /*   private Classe classe;
+    */
 }

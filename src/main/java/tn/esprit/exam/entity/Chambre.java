@@ -30,24 +30,38 @@ public class Chambre {
 }
 
 /*
-* OneTo many (Unidirectionnelle)  1 -> *        table
-* OneToMany(cascade = CascadeType.All)  1
-* private Set<Equipe> Equipes;
-*
-* OneToMany (Bidirectionnelle)  1 -> *          clé  coté many
-* OneToMany
-* ManyToOne
-* private Entreprise entreprise;
-*
-* ManyToMnay   (Bidirectionnelle)
-* @ManyToMnay(cascade=CascadeType.All)    parent
-* private Set<Projet> projets;
-* @ManyToMany(mappedBy="projets")     le fils contient le mappedby
-* private Set<Equipe> equipes;
-*
-* One to one
-* @OneToOne
-* private Projet_Detail projetDetail;
-* @OneToOne(mappedBy="projetDetail")     la classe fils contient le mapped by
-* private Projet projet;
-* */
+**One To One (Unidirectionnelle)  ml projet vers ProjetDetail  --> clé coté projet
+@OneToOne
+private Projet_Detail projetDetail;
+
+**One To One Bidirectionnelle   --> clé coté projet
+@OneToOne
+private Projet_Detail projetDetail;
+@OneToOne(mappedBy="projetDetail")
+private Projet projet;
+
+**One To Many (Unidirectionnelle)  Entreprise -> Equipe  -->Table
+@OneToMany(cascade = CascadeType.ALL)
+private Set<Equipe> Equipes;
+
+**Many To One (Unidirectionnelle)     Equipe* -> 1Entreprise  -->Cle coté equipe
+@ManyToOne(cascade = CascadeType.ALL)
+Entreprise entreprise;
+
+Many To One (Bidirectionnelle)                   -->clé coté equipe
+@ManyToOne(cascade = CascadeType.ALL)
+Entreprise entreprise;
+@OneToMany(cascade = CascadeType.ALL, mappedBy="entreprise")
+private Set<Equipe> Equipes;
+
+**Many To Many (Unidirectionnelle)  Equipe* -> *Entreprise    -->Table
+@ManyToMany(cascade = CascadeType.ALL)
+private Set<Projet> projets;
+
+Many To Many (Bidirectionnelle)          -->Table
+@ManyToMany(cascade = CascadeType.ALL)
+private Set<Projet> projets;
+@ManyToMany(mappedBy="projets", cascade = CascadeType.ALL)
+private Set<Equipe> equipes;
+
+ */
