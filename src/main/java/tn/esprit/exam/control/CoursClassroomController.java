@@ -26,6 +26,7 @@ public class CoursClassroomController {
         coursClassroomService.desaffecterCoursClassroomClasse(idCours);
     }
 
+    //GET  http://localhost:8089/rima-toute-4sae2/classroom/nb-heures/INFORMATIQUE/QUATRIEME
     @GetMapping("/nb-heures/{specialite}/{niveau}")
     public Integer nbHeuresParSpecEtNiv(@PathVariable Specialite specialite, @PathVariable Niveau niveau) {
         return coursClassroomService.nbHeuresParSpecEtNiv(specialite, niveau);

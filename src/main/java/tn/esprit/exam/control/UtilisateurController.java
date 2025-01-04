@@ -24,6 +24,7 @@ public class UtilisateurController {
         utilisateurService.affecterUtilisateurClasse(idUtilisateur, codeClasse);
     }
 
+    //GET /user/nbUtilisateursParNiveau/QUATRIEME
     @GetMapping("/nbUtilisateursParNiveau/{niveau}")
     public Integer nbUtilisateursParNiveau(@PathVariable Niveau niveau) {
         return utilisateurService.nbUtilisateursParNiveau(niveau);
